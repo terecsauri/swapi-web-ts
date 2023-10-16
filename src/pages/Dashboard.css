@@ -1,0 +1,14 @@
+.toda-dashboard {
+  width: 100vw;
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toda-dashboard div {
+  width: 1000px;
+  background-color: rgb(233, 252, 255);
+  border-radius: 10px;
+}

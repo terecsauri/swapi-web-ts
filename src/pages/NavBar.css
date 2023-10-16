@@ -1,9 +1,9 @@
 .toda {
   height: 70px;
-  width: 1000px;
+  width: 100vw;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 }
 
 .toda div {
@@ -12,6 +12,8 @@
   justify-content: center;
   width: 7rem;
   height: 2rem;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 7px;
   background-color: rgb(119, 223, 255);
   font-weight: bold;

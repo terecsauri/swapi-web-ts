@@ -7,9 +7,9 @@ import { UserContext, UserContextType } from "./pages/UserContext";
 import { NavBar } from "./pages/NavBar";
 import { ProtectedRoute } from "./pages/ProtectedRoute";
 import { Dashboard } from "./pages/Dashboard";
+import { Personajes } from "./pages/Personajes";
 
 function App() {
-
   const [user, setUser] = useState<UserContextType | null>(null);
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
@@ -18,21 +18,21 @@ function App() {
     <>
       <BrowserRouter>
         {/* <PrimeReactProvider> */}
-          <UserContext.Provider value={value}>
-            <div>
-              {user && <NavBar />}
-              <Routes>
-                <Route path="login/*" element={<Login setUser={setUser} />} />
-                <Route path="*" element={<Navigate to={"/login"} />} />
-                <Route
-                    path="dashboard"
-                    element={<ProtectedRoute user={user} />}
-                  >
-                    <Route path="/dashboard" element={<Dashboard />} />
-                  </Route>
-              </Routes>
-            </div>
-          </UserContext.Provider>
+        <UserContext.Provider value={value}>
+          <div>
+            {user && <NavBar />}
+            <Routes>
+              <Route path="login/*" element={<Login setUser={setUser} />} />
+              <Route path="*" element={<Navigate to={"/login"} />} />
+              <Route path="dashboard" element={<ProtectedRoute user={user} />}>
+                <Route path="/dashboard" element={<Dashboard />} />
+              </Route>
+              <Route path="personajes" element={<ProtectedRoute user={user} />}>
+                <Route path="/personajes" element={<Personajes />} />
+              </Route>
+            </Routes>
+          </div>
+        </UserContext.Provider>
         {/* </PrimeReactProvider> */}
       </BrowserRouter>
     </>
