@@ -2,8 +2,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Login } from "./pages/Login";
-import { useMemo, useState } from "react";
-import { UserContext, UserContextType } from "./pages/UserContext";
+import { useState } from "react";
 import { NavBar } from "./pages/NavBar";
 import { ProtectedRoute } from "./pages/ProtectedRoute";
 import { Dashboard } from "./pages/Dashboard";
@@ -13,38 +12,34 @@ import { Especies } from "./pages/Especies";
 import { Peliculas } from "./pages/Peliculas";
 
 function App() {
-  const [user, setUser] = useState<UserContextType | null>(null);
-
-  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+  const [auth, setAuth] = useState(false)
 
   return (
     <>
       <BrowserRouter>
         {/* <PrimeReactProvider> */}
-        <UserContext.Provider value={value}>
           <div>
-            {user && <NavBar />}
+            {auth && <NavBar />}
             <Routes>
-              <Route path="login/*" element={<Login setUser={setUser} />} />
+              <Route path="login/*" element={<Login setAuth={setAuth} />} />
               <Route path="*" element={<Navigate to={"/login"} />} />
-              <Route path="dashboard" element={<ProtectedRoute user={user} />}>
+              <Route path="dashboard" element={<ProtectedRoute auth={auth} />}>
                 <Route path="/dashboard" element={<Dashboard />} />
               </Route>
-              <Route path="personajes" element={<ProtectedRoute user={user} />}>
+              <Route path="personajes" element={<ProtectedRoute auth={auth} />}>
                 <Route path="/personajes" element={<Personajes />} />
               </Route>
-              <Route path="planetas" element={<ProtectedRoute user={user} />}>
+              <Route path="planetas" element={<ProtectedRoute auth={auth} />}>
                 <Route path="/planetas" element={<Planetas />} />
               </Route>
-              <Route path="especies" element={<ProtectedRoute user={user} />}>
+              <Route path="especies" element={<ProtectedRoute auth={auth} />}>
                 <Route path="/especies" element={<Especies />} />
               </Route>
-              <Route path="peliculas" element={<ProtectedRoute user={user} />}>
+              <Route path="peliculas" element={<ProtectedRoute auth={auth} />}>
                 <Route path="/peliculas" element={<Peliculas />} />
               </Route>
             </Routes>
           </div>
-        </UserContext.Provider>
         {/* </PrimeReactProvider> */}
       </BrowserRouter>
     </>
