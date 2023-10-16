@@ -8,6 +8,7 @@
 }
 
 .toda-dashboard div {
+  padding: 0.4rem;
   width: 1000px;
   background-color: rgb(233, 252, 255);
   border-radius: 10px;
