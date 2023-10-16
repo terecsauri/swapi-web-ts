@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 
-export const NavBar: React.FC = () => {
+interface Props {
+  setAuth: (action: boolean) => void;
+}
+
+export const NavBar = ({ setAuth }: Props) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
