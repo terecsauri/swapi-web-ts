@@ -1,14 +1,11 @@
-import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
 import "./NavBar.css";
 
 export const NavBar: React.FC = () => {
-  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setUser(false);
+    setAuth(false);
     navigate("/login");
   };
 
