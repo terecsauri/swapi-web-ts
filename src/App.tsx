@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         {/* <PrimeReactProvider> */}
           <div>
-            {auth && <NavBar />}
+            {auth && <NavBar setAuth={setAuth} />}
             <Routes>
               <Route path="login/*" element={<Login setAuth={setAuth} />} />
               <Route path="*" element={<Navigate to={"/login"} />} />
