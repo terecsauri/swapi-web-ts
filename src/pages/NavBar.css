@@ -1,0 +1,24 @@
+.toda {
+  height: 70px;
+  width: 1000px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.toda div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 7px;
+  background-color: rgb(119, 223, 255);
+  font-weight: bold;
+}
+
+.toda div:hover {
+    cursor: pointer;
+    background-color: rgb(211, 245, 255);
+    transition: 0.5s;
+  }
