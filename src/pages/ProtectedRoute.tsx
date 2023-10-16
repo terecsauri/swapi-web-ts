@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Routes, Route, Link, Navigate, Outlet } from 'react-router-dom';
-import { Login } from './Login';
+import { Navigate, Outlet } from 'react-router-dom';
 
 interface ProtectedRouteProps {
   user: boolean;
