@@ -24,8 +24,8 @@
 .login-caja {
   height: 10rem;
   width: 30rem;
-  background-color: rgb(0, 217, 255);
-  filter: drop-shadow(0 0 0.75rem #4444445c);
+  background-color: rgb(248, 254, 255);
+  filter: drop-shadow(-23px -16px 0px #2689ba);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -63,7 +63,7 @@ button {
   justify-content: center;
   width: 4.5rem;
   height: 1.75rem;
-  background-color: rgb(119, 223, 255);
+  background-color: rgb(191, 210, 216) !important;
 }
 
 button:hover {

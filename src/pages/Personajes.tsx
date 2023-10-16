@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { getPersonaje } from "./Datos";
@@ -6,6 +7,7 @@ import "./Personajes.css";
 
 export const Personajes = () => {
   const [person, setPerson] = useState<{ name: string; gender: string; height: string; birth_year: string }[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const GetData = async () => {
     try {
@@ -20,12 +22,15 @@ export const Personajes = () => {
   };
 
   useEffect(() => {
-    GetData();
+    GetData()
+    .then((response) => {
+      setLoading(false);
+    });
   }, []);
 
   return (
     <div className="todo-personajes">
-      <DataTable value={person} stripedRows tableStyle={{ minWidth: "50rem" }}>
+      <DataTable value={person} stripedRows loading={loading} tableStyle={{ minWidth: "50rem" }}>
         <Column
           field="name"
           header="Nombre"

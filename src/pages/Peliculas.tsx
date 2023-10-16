@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react";
 import { getPelicula } from "./Datos";
 import { DataTable } from "primereact/datatable";
@@ -13,6 +14,7 @@ export const Peliculas = () => {
       release_date: number;
     }[]
   >([]);
+  const [loading, setLoading] = useState(true);
 
   const GetData = async () => {
     try {
@@ -27,12 +29,15 @@ export const Peliculas = () => {
   };
 
   useEffect(() => {
-    GetData();
+    GetData()
+    .then((response) => {
+      setLoading(false);
+    });
   }, []);
 
   return (
     <div className="todo-peliculas">
-      <DataTable value={film} stripedRows tableStyle={{ minWidth: "50rem" }}>
+      <DataTable value={film} stripedRows loading={loading} tableStyle={{ minWidth: "50rem" }}>
         <Column
           field="title"
           header="Titulo"

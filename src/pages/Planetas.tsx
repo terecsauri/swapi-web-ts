@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
@@ -9,6 +10,7 @@ export const Planetas = () => {
   const [planet, setPlanet] = useState<
     { name: string; climate: string; population: string }[]
   >([]);
+  const [loading, setLoading] = useState(true);
 
   const GetData = async () => {
     try {
@@ -23,12 +25,15 @@ export const Planetas = () => {
   };
 
   useEffect(() => {
-    GetData();
+    GetData()
+    .then((response) => {
+      setLoading(false);
+    });
   }, []);
 
   return (
     <div className="todo-planetas">
-      <DataTable value={planet} stripedRows tableStyle={{ minWidth: "50rem" }}>
+      <DataTable value={planet} stripedRows loading={loading} tableStyle={{ minWidth: "50rem" }}>
         <Column
           field="name"
           header="Nombre"
