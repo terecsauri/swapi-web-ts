@@ -8,6 +8,9 @@ import { NavBar } from "./pages/NavBar";
 import { ProtectedRoute } from "./pages/ProtectedRoute";
 import { Dashboard } from "./pages/Dashboard";
 import { Personajes } from "./pages/Personajes";
+import { Planetas } from "./pages/Planetas";
+import { Especies } from "./pages/Especies";
+import { Peliculas } from "./pages/Peliculas";
 
 function App() {
   const [user, setUser] = useState<UserContextType | null>(null);
@@ -29,6 +32,15 @@ function App() {
               </Route>
               <Route path="personajes" element={<ProtectedRoute user={user} />}>
                 <Route path="/personajes" element={<Personajes />} />
+              </Route>
+              <Route path="planetas" element={<ProtectedRoute user={user} />}>
+                <Route path="/planetas" element={<Planetas />} />
+              </Route>
+              <Route path="especies" element={<ProtectedRoute user={user} />}>
+                <Route path="/especies" element={<Especies />} />
+              </Route>
+              <Route path="peliculas" element={<ProtectedRoute user={user} />}>
+                <Route path="/peliculas" element={<Peliculas />} />
               </Route>
             </Routes>
           </div>
