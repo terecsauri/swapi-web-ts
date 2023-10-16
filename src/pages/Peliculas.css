@@ -9,5 +9,6 @@
 
 .todo-peliculas :first-child {
     border-radius: 10px;
+    color: black;
     background-color: rgb(233, 252, 255);
 }
