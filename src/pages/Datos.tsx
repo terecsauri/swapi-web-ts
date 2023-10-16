@@ -1,6 +1,6 @@
 export const getPersonaje = async () => {
     
-    let response = await fetch('https://swapi.dev/api/people/?results=10');
+    let response = await fetch('https://swapi.dev/api/people/');
     
     return response.json();
 
@@ -8,7 +8,7 @@ export const getPersonaje = async () => {
 
 export const getPlaneta = async () => {
     
-    let response = await fetch('https://swapi.dev/api/planets/?results=10');
+    let response = await fetch('https://swapi.dev/api/planets/');
     
     return response.json();
 
@@ -16,7 +16,7 @@ export const getPlaneta = async () => {
 
 export const getEspecie = async () => {
     
-    let response = await fetch('https://swapi.dev/api/species/?results=10');
+    let response = await fetch('https://swapi.dev/api/species/');
     
     return response.json();
 

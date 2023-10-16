@@ -25,15 +25,23 @@ export const Planetas = () => {
   };
 
   useEffect(() => {
-    GetData()
-    .then(() => {
+    GetData().then(() => {
       setLoading(false);
     });
   }, []);
 
+  const footer = `En total hay ${planet ? planet.length : 0} planetas.`;
+
   return (
     <div className="todo-planetas">
-      <DataTable value={planet} stripedRows loading={loading} tableStyle={{ minWidth: "50rem" }}>
+      <DataTable
+        value={planet}
+        footer={footer}
+        paginator
+        rows={3}
+        loading={loading}
+        tableStyle={{ minWidth: "50rem" }}
+      >
         <Column
           field="name"
           header="Nombre"
@@ -55,4 +63,4 @@ export const Planetas = () => {
       </DataTable>
     </div>
   );
-}
+};

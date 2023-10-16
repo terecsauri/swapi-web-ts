@@ -30,11 +30,15 @@ export const Especies = () => {
     });
   }, []);
 
+  const footer = `En total hay ${specie ? specie.length : 0} especies.`;
+
   return (
     <div className="todo-especies">
       <DataTable
         value={specie}
-        stripedRows
+        footer={footer}
+        paginator
+        rows={3}
         loading={loading}
         tableStyle={{ minWidth: "50rem" }}
       >

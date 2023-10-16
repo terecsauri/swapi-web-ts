@@ -1,20 +1,30 @@
 .todo-personajes {
-    width: 100vw;
-    height: calc(100vh - 70px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 100vw;
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
 }
 
 .p-datatable-loading-overlay :first-child {
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 }
 
 .todo-personajes :first-child {
-    padding: 0.2rem;
-    border-radius: 10px;
-    color: black !important;
-    background-color: rgb(233, 252, 255);
+  color: black !important;
+  max-height: 70vh;
+  max-width: 100vw;
+}
+
+.p-datatable-tbody :hover {
+  background-color: rgb(184, 230, 242);
+}
+
+.p-paginator-pages {
+  max-width: 100vw !important;
+  display: flex;
+  flex-direction: row;
 }

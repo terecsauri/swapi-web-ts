@@ -29,15 +29,23 @@ export const Peliculas = () => {
   };
 
   useEffect(() => {
-    GetData()
-    .then(() => {
+    GetData().then(() => {
       setLoading(false);
     });
   }, []);
 
+  const footer = `En total hay ${film ? film.length : 0} películas.`;
+
   return (
     <div className="todo-peliculas">
-      <DataTable value={film} stripedRows loading={loading} tableStyle={{ minWidth: "50rem" }}>
+      <DataTable
+        value={film}
+        footer={footer}
+        paginator
+        rows={3}
+        loading={loading}
+        tableStyle={{ minWidth: "50rem" }}
+      >
         <Column
           field="title"
           header="Titulo"
