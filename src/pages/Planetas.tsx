@@ -26,7 +26,7 @@ export const Planetas = () => {
 
   useEffect(() => {
     GetData()
-    .then((response) => {
+    .then(() => {
       setLoading(false);
     });
   }, []);

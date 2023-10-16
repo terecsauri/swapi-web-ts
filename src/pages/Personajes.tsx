@@ -23,7 +23,7 @@ export const Personajes = () => {
 
   useEffect(() => {
     GetData()
-    .then((response) => {
+    .then(() => {
       setLoading(false);
     });
   }, []);

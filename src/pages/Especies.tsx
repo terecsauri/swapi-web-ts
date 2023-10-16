@@ -25,7 +25,7 @@ export const Especies = () => {
 
   useEffect(() => {
     GetData()
-    .then((response) => {
+    .then(() => {
       setLoading(false);
     });
   }, []);

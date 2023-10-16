@@ -30,7 +30,7 @@ export const Peliculas = () => {
 
   useEffect(() => {
     GetData()
-    .then((response) => {
+    .then(() => {
       setLoading(false);
     });
   }, []);
